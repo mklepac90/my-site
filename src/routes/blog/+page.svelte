@@ -115,10 +115,10 @@
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish -->
 	{#if !$search}
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
-			Most Popular
+			Pinned
 		</h3>
-		<IndexCard href="/welcome" title="Welcome to swyxkit!" stringData="123,456 views">
-			This is swyx's preferred starter for Svelte projects!
+		<IndexCard href="/welcome" title="Welcome to my site!" stringData="Click to find out!">
+			What can you expect to find here?
 		</IndexCard>
 
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
