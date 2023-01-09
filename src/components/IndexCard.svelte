@@ -19,7 +19,7 @@
 				{title}
 			</h4>
 		</div>
-		<p class="text-gray-600 break-all sm:break-words dark:text-gray-400">
+		<p class="text-gray-600 sm:break-words dark:text-gray-400">
 			<slot />
 		</p>
 		<div class="flex justify-between gap-1 text-left text-gray-500 sm:justify-start sm:flex-row sm:gap-4 md:mb-0 md:text-sm">
@@ -32,9 +32,9 @@
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>
 			{/if}
 			<!-- comment this in if you have multiple categories -->
-			<!-- <button class="px-4 capitalize bg-gray-200 rounded-xl dark:bg-gray-700 dark:text-gray-400"
+			<button class="px-4 capitalize bg-gray-200 rounded-xl dark:bg-gray-700 dark:text-gray-400"
 				>{item?.category || 'blog'}</button
-			> -->
+			>
 		</div>
 	</div></a
 >
