@@ -127,7 +127,8 @@ export async function getContent(providedFetch, slug) {
 				function youtube_parser(url) {
 					var rx =
 						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
-					return url.match(rx)[1];
+					if (url.match(rx)) return url.match(rx)[1];
+					return url.slice(-11);
 				}
 				const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
 				return `<iframe
@@ -227,9 +228,7 @@ function parseIssue(issue) {
 	// strip html
 	description = description.replace(/<[^>]*>?/gm, '');
 	// strip markdown
-	description = description.replace(/[[\]]/gm, '');
-	// strip markdown
-	description = description.replace(/[[\]]/gm, '');
+	// description = description.replace(/[[\]]/gm, '');
 
 	// you may wish to use a truncation approach like this instead...
 	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
@@ -247,7 +246,7 @@ function parseIssue(issue) {
 		title,
 		subtitle: data.subtitle,
 		description,
-		category: data.category?.toLowerCase() || 'blog',
+		category: data.category?.toLowerCase() || 'note', // all posts assumed to be "note"s unless otherwise specified
 		tags,
 		image: data.image ?? data.cover_image,
 		canonical: data.canonical, // for canonical URLs of something published elsewhere
